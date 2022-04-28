@@ -1,6 +1,6 @@
 #include "md5.h"
 
-//todo M[] als eingabe -> cheaten
+
 
 //takes one block (512 bit as input)
 void MD5 (struct context_struct *c, struct stat_struct *s, int M[16]) {
