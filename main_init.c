@@ -1,17 +1,27 @@
 #include "md5.h"
 #include <math.h>
+#include <string.h>
 
 int initS(struct stat_struct *h);
 int initK(struct stat_struct *h);
 
-int main_init(struct stat_struct *h, struct context_struct *c) {
-    initS(h);
-    initK(h);
 
-    c->a0 = 0x67452301;
-    c->b0 = 0xefcdab89;
-    c->c0 = 0x98badcfe;
-    c->d0 = 0x10325476;
+int main_init(struct stat_struct *stats, struct context_struct *conx, char *rawm) {
+    initS(stats);
+    initK(stats);
+
+    conx->a0 = 0x67452301;
+    conx->b0 = 0xefcdab89;
+    conx->c0 = 0x98badcfe;
+    conx->d0 = 0x10325476;
+
+    int meslen = strlen(rawm);
+
+
+}
+
+void prepareInput (char* rawInput) {
+
 }
 
 int initS(struct stat_struct *h) {

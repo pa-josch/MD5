@@ -6,6 +6,8 @@
 
 struct context_struct {
     unsigned int a0,b0,c0,d0;
+
+    unsigned int* currentBlock;
 };
 
 struct stat_struct {
