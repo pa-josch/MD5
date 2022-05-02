@@ -1,9 +1,10 @@
 #include "md5.h"
 
 
+//todo pointer auf current block ist teil des contextes, wie "ersetze" ich dann M[g]
 
 //takes one block (512 bit as input)
-void MD5 (struct context_struct *c, struct stat_struct *s, int M[16]) {
+void MD5 (struct context_struct *c, struct stat_struct *s, unsigned int *M) {
     unsigned int A = c -> a0;
     unsigned int B = c -> b0;
     unsigned int C = c -> c0;

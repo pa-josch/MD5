@@ -9,7 +9,7 @@ set(CMAKE_SYSTEM_NAME Linux)
 set(CMAKE_C_COMPILER gcc)
 set(CMAKE_CXX_COMPILER g++)
 
-add_executable(MD5 main.c main_preproc.c md5.c)
+add_executable(MD5 main.c main_init.c md5.c)
 target_link_libraries(MD5 m)
 
 #target_compile_options(test_int PRIVATE -Wall -D ENABLE_LOCAL_MAIN -O2)
