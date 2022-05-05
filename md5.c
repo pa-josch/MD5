@@ -1,19 +1,12 @@
 #include "md5.h"
 
-
-
-
 //takes one block (512 bit as input)
 void MD5(struct context_struct *c, struct stat_struct *s) {
-
     unsigned int A = c -> a0;
     unsigned int B = c -> b0;
     unsigned int C = c -> c0;
     unsigned int D = c -> d0;
-
     unsigned int* word = (unsigned int*) c->activeblock;
-
-
     //magic number party
     for (int i = 0; i < 4; ++i) {
         for (int j = 0; j < 16; ++j) {

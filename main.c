@@ -11,12 +11,10 @@ showOutput (struct context_struct *c);
 
 
 int main() {
-
-
-
     struct stat_struct stats;
     struct context_struct context;
 
+    //todo user input (or file?)
     char inputtext[] = "123456789aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa8aaa";
 
     main_preproc(&stats, &context, inputtext);
@@ -31,7 +29,7 @@ int main() {
 
     showOutput(&context);
 }
-
+//todo?
 showOutput (struct context_struct *c) {
     printf("%u" , c->a0);
     printf("%u" , c->b0);

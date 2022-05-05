@@ -32,8 +32,6 @@ int initStats(struct stat_struct *s, struct context_struct *c) {
     c->d0 = 0x10325476;
     return 0;
 }
-
-
 void *prepString(char str[], struct context_struct *c) {
     unsigned strbytes = strlen(str);
     int restbit = (strbytes * 8) % BLOCKSIZE;
@@ -42,10 +40,6 @@ void *prepString(char str[], struct context_struct *c) {
         padbytes = (MAGIC_PADDING_NUMBER - restbit)/8;
     else
         padbytes = (BLOCKSIZE - restbit + MAGIC_PADDING_NUMBER)/8;
-
-    if ( !((8 * (strbytes + padbytes) ) % BLOCKSIZE == MAGIC_PADDING_NUMBER) ) //TEST
-        return NULL;
-
     int totalsize = strbytes + padbytes + 8;
     c->blockamt = totalsize*8/512;
     char* ptr = (char*) calloc(totalsize, sizeof(char));
@@ -53,7 +47,8 @@ void *prepString(char str[], struct context_struct *c) {
     memcpy(ptr, str, strlen (str));
     ptr = ptr + strlen(str);
     *ptr = (char) 128; //single1 padding
-    //todo strlen(str) als 64 bit zahl anhängen
+    /*todo strlen(str) als 64 bit zahl anhängen (macht hier keinen ärger wegen calloc
+     * danach sollte es eigentlich korrekt sein */
 }
 
 
